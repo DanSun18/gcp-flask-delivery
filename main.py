@@ -15,6 +15,7 @@
 # [START gae_python37_app]
 from flask import Flask
 from flask import jsonify
+import pandas as pd
 
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
@@ -50,6 +51,12 @@ def html():
     <p>Welcome to the HTML route page</p>
     <p><b>Hello there (in bold)!</b></p>
     """
+
+
+@app.route('/pandas')
+def pandas_sugar():
+    df = pd.read_csv("https://raw.githubusercontent.com/noahgift/sugar/master/data/education_sugar_cdc_2003.csv")
+    return jsonify(df.to_dict())
 
 
 if __name__ == '__main__':
