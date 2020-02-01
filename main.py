@@ -34,6 +34,12 @@ def name(value):
     val = {"name": value}
     return jsonify(val)
 
+@app.route('/bob')
+def bob():
+    """Testing that continuous deployment works"""
+    val = {"value": "Thanks bob!"}
+    return jsonify(val)
+
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
