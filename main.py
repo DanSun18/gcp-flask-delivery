@@ -34,11 +34,22 @@ def name(value):
     val = {"name": value}
     return jsonify(val)
 
+
 @app.route('/bob')
 def bob():
     """Testing that continuous deployment works"""
     val = {"value": "Thanks bob!"}
     return jsonify(val)
+
+
+@app.route('/html')
+def html():
+    """Returns some custom HTML"""
+    return """
+    <title>HTML Route Page</title>
+    <p>Welcome to the HTML route page</p>
+    <p><b>Hello there (in bold)!</b></p>
+    """
 
 
 if __name__ == '__main__':
