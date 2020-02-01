@@ -16,6 +16,7 @@
 from flask import Flask
 from flask import jsonify
 import pandas as pd
+import wikipedia
 
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
@@ -57,6 +58,22 @@ def html():
 def pandas_sugar():
     df = pd.read_csv("https://raw.githubusercontent.com/noahgift/sugar/master/data/education_sugar_cdc_2003.csv")
     return jsonify(df.to_dict())
+
+
+@app.route('/wikipedia/<company>')
+def wikipedia_route(company):
+    # Imports the Google Cloud client library
+    from google.cloud import language
+    from google.cloud.language import enums
+    from google.cloud.language import types
+    result = wikipedia.summary(company, sentences=10)
+
+    client = language.LanguageServiceClient()
+    document = types.Document(
+        content=result,
+        type=enums.Document.Type.PLAIN_TEXT)
+    entities = client.analyze_entities(document).entities
+    return str(entities)
 
 
 if __name__ == '__main__':
