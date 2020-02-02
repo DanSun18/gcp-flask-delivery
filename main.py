@@ -40,7 +40,7 @@ def name(value):
 @app.route('/bob')
 def bob():
     """Testing that continuous deployment works"""
-    val = {"value": "Thanks bob!"}
+    val = {"value": "Thanks bob!!"}
     return jsonify(val)
 
 
