@@ -8,4 +8,4 @@ In this project I set up continuous delivery of a flask appliation on Google Clo
 
 To begin with, I followed the video at this link: https://www.youtube.com/watch?v=_TfWdOvQXwU&feature=youtu.be to set up a simple flask application and set up continuous delivery with Cloud Build. After verifying that everything works as expected I followed the instructions here (https://github.com/noahgift/gcp-hello-ml) to make the application more complex. Specifically, I added the used pandas, wikipedia, and Google NLP to enhance the application following the instructions provided. 
 
-A video demonstrating the project can be found at: (to be added).
+A video demonstrating the project can be found at: https://youtu.be/bHBLU8L-EPk.
